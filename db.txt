@@ -1,0 +1,30 @@
+create database project;
+
+use project;
+
+create table user_info(
+no int not null primary key auto_increment,
+id char(15) not null,
+password char(20) not null,
+email char(30) not null,
+major_type char(15),
+major_detail varchar(15),
+certificate_own varchar(30)
+) default charset=utf8;
+
+
+create table certificate(
+    no int not null primary key auto_increment,
+    name char(15) not null,
+    type varchar(10) not null,
+    organizer varchar(20)
+) default charset=utf8;
+
+CREATE TABLE certificate_date(
+    no int not null primary key auto_increment,
+    name char(15) not null,
+    d_day date,
+    apply_start date,
+    apply_end date,
+    result_release date
+) default charset=utf8;
