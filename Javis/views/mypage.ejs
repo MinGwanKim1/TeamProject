@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="ko">
+    <head>
+        <%- include ("./common/head") %>
+        <link href="src/css/mypage.css" rel="stylesheet">
+        <script>
+            var certiname="정보처리기사";
+            var certiname2="한국사";
+        </script>
+    </head>
+ 
+    <body>
+        <script src="https://code.highcharts.com/highcharts.js"></script>
+        <script src="https://code.highcharts.com/modules/heatmap.js"></script>
+        <script src="https://code.highcharts.com/modules/treemap.js"></script>
+        <script src="https://code.highcharts.com/modules/exporting.js"></script>
+        <script src="https://code.highcharts.com/modules/export-data.js"></script>
+        <script src="https://code.highcharts.com/modules/accessibility.js"></script>
+        <div id="wrap">
+            <!------------------- 상단 navbar ------------------->
+            <header>
+                <%- include ("./common/navbar") %>
+            </header>
+
+            <div id="container">
+                <div id="snb">
+                    <div class="content-header text-center">
+                        <h3>회원정보변경</h3>
+                    </div>
+                    <ul class="nav nav-pills nav-stacked">                      
+                        <li role="presentation"><a href="#">개인정보 변경</a></li>
+                        <li role="presentation"><a href="#">비밀번호 변경</a></li>
+                        <li role="presentation"><a href="#">내가 쓴 글</a></li>
+                    </ul>
+                </div>
+
+                <div id="content">
+                    <div class="mypage-cont">
+                        <div class="content-header">
+                            <h3>내 시험 일정</h3>
+                        </div>
+                        <table class="table table-hover data">
+                            <thead>
+                              <tr>
+                                <th>시험명</th>
+                                <th>시험일</th>
+                                <th>성적발표일</th>
+                                <th>접수확인</th>
+                              </tr>
+                            </thead>
+                            <tbody>
+                              <tr>
+                                <td>토익</td>
+                                <td>2020.06.20</td>
+                                <td>2020.08.20</td>
+                                <td><a href="#">링크</a></td>
+                              </tr>
+                            </tbody>
+                        </table>
+
+                        <div class="content-header">
+                            <h3>내 전공 인기 자격증</h3>
+                        </div>
+                        <div class="total">
+                            <figure class="highcharts-figure">
+                                <div id="chart-container"></div>
+                                <p class="highcharts-description">
+                                 *나와 전공이 같은 사람들이 보유하고있는 자격증입니다. 
+                                </p>
+                              </figure>
+                
+                              <script>
+                                Highcharts.chart('chart-container', {
+                      colorAxis: {
+                        minColor: '#FFFFFF',
+                        maxColor: Highcharts.getOptions().colors[0]
+                      },
+                      series: [{
+                        type: 'treemap',
+                        layoutAlgorithm: 'squarified',
+                        data: [{
+                          name: certiname,
+                          value: 9,
+                          colorValue: 1
+                        }, {
+                          name: certiname2,
+                          value: 6,
+                          colorValue: 2
+                        }, {
+                          name: 'C',
+                          value: 4,
+                          colorValue: 3
+                        }, {
+                          name: 'D',
+                          value: 3,
+                          colorValue: 4
+                        }, {
+                          name: 'E',
+                          value: 2,
+                          colorValue: 5
+                        }, {
+                          name: 'F',
+                          value: 2,
+                          colorValue: 6
+                        }, {
+                          name: 'G',
+                          value: 1,
+                          colorValue: 7
+                        }]
+                      }],
+                      title: {
+                        text: 'Highcharts Treemap'
+                      }
+                    });
+                            </script>
+
+
+                        </div>
+
+
+                    </div><!--//mypage-cont-->
+                    
+
+
+
+                </div>
+                    
+            </div><!--//container-->
+
+            <footer>
+                
+            </footer>
+
+
+
+
+        </div><!--//wrap-->
+
+       
+        
+    
+    
+    
+    </body>
+</html>
